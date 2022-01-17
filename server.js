@@ -23,8 +23,13 @@ const db = mysql.createConnection(
         password: '',
         database: 'election'
     },
-    console.log('Coneccted to the election database.')
+    console.log('Connected to the election database.')
 );
+
+// db object is using the SQL query() method and executes the callback with all the rusulting rows that match the query.
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+});
 
 
 // Default response for any other request (Not Found)
